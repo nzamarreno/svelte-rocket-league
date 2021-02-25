@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import thunder from "images/thunder.svg";
 	import versoSmall from "images/versus-small.svg";
 	import versoLogo from "images/versus.svg";
@@ -9,12 +9,24 @@
 	);
 	const randomLots = drawLots.sort(() => Math.random() - 0.5);
 
-	let teamA = ["Léonardo", "Adrien", "Nicolas", "Slimane"];
-	let teamB = ["Khaled", "Julien", "Francis", "Raphael"];
+	const shuffleTeam = (users: any[]) => users.sort(() => .5 - Math.random())
+
+	const getTeams = () => {
+		const users = shuffleTeam($userStore)
+		const half = Math.ceil(users.length / 2);
+		const teamA = users.splice(0, half)
+		const teamB = users.splice(-half)
+
+		return [teamA, teamB]
+	}
+
+	const [teamA, teamB] = getTeams()
+
+	
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>Versus - Draw lots</title>
 </svelte:head>
 
 <main class="score">
@@ -24,8 +36,8 @@
 				class="score-layout-wrapper__column score-layout-wrapper__column--team-a"
 			>
 				<ul class="team-player">
-					{#each teamA as team}
-						<li>{team}</li>
+					{#each teamA as user}
+						<li>{user.name}</li>
 					{/each}
 				</ul>
 			</div>
@@ -33,8 +45,8 @@
 				class="score-layout-wrapper__column score-layout-wrapper__column--team-b"
 			>
 				<ul class="team-player">
-					{#each teamB as team}
-						<li>{team}</li>
+					{#each teamB as user}
+						<li>{user.name}</li>
 					{/each}
 				</ul>
 			</div>
@@ -147,6 +159,18 @@
 		</svg>
 	</div>
 	<div class="banner">
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
+		<img class="banner__baseline" src={versoLogo} alt="versus" />
 		<img class="banner__baseline" src={versoLogo} alt="versus" />
 		<img class="banner__baseline" src={versoLogo} alt="versus" />
 		<img class="banner__baseline" src={versoLogo} alt="versus" />

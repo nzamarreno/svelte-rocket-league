@@ -6,15 +6,21 @@
 	import { userStore } from "../stores/users";
 	import { goto } from "@sapper/app";
 
-	let value: string = "";
+	let name: string = "";
+	let nickname: string = "";
 
 	function onChange(event) {
-		value = event.detail.value;
+		name = event.detail.value;
+	}
+	
+	function onChangeNickName(event) {
+		nickname = event.detail.value;
 	}
 
 	function onAddClick(event) {
-		userStore.addUser(value);
-		value = "";
+		userStore.addUser({name: name, nickName: nickname});
+		name = "";
+		nickname = "";
 	}
 
 	function onNextStepClick() {
@@ -23,21 +29,37 @@
 </script>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Versus - Rocket League</title>
 </svelte:head>
 
+<Loader/>
 <main class="home" style="background-image: url({bg})">
-	{#each $userStore as user}
-		<div class="hello">{user}</div>
-	{/each}
+	<ul class="player-list">
+		{#each $userStore as user}
+			<li class="player-item">
+				<div class="player-item__avatar">
+					{user.name.charAt(0)}.
+				</div>
+				<div class="player-item__desc">
+					<h3 class="player-item__name">
+						{user.name}
+					</h3>
+					{#if user.nickName !== ''}
+						<p class="player-item__nickname">{user.nickName}</p>
+					{/if}
+				</div>
+			</li>
+		{/each}
+	</ul>
+	
 	<div class="login">
 		<img class="login__logo" src={versusRed} alt="versus-red" />
 		<h1 class="login__title">
-			<strong>Champion,</strong> entrer your name
+			<strong>Champion,</strong> entrer their name
 		</h1>
 
-		<Input on:change={onChange} {value} placeholder="Name" />
-		<Input on:change={onChange} {value} placeholder="The Crack" />
+		<Input on:change={onChange} value={name} placeholder="Name" />
+		<Input on:change={onChangeNickName} value={nickname} placeholder="The Crack" />
 
 		<div class="login__action">
 			<button on:click={onAddClick} class="button">Add</button>
@@ -68,7 +90,7 @@
 
 <style lang="scss">
 	$black: #0a0a0a;
-
+	$red: #E41C23;
 	.home {
 		display: flex;
 		align-items: center;
@@ -116,6 +138,49 @@
 		&:hover {
 			&:after {
 				transform: scaleX(1);
+			}
+		}
+	}
+
+	.player {
+		&-list {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&-item {
+			display: inline-flex;
+			align-items: center;
+			margin-bottom: 2rem;
+
+			&__avatar {
+				border-radius: 50%;
+				background-color: $red;
+				color: $black;
+				width: 6rem;
+				height: 6rem;
+				flex-shrink: 0;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 3rem;
+				font-weight: 500;
+			}
+
+			&__desc {
+				margin-left: 2rem;
+			}
+
+			&__name {
+				margin: 0;
+				font-size: 3rem;
+				font-weight: 500;
+				color: white;
+			}
+
+			&__nickname {
+				margin: 0;
+				color: white;
 			}
 		}
 	}

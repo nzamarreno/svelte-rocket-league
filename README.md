@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/nzamarreno/svelte-rocket-league/ab4d30535d1d27be4207eb60be6a2d4841a79779/src/node_modules/images/versus-red.svg">
+<img src="https://raw.githubusercontent.com/nzamarreno/svelte-rocket-league/master/src/node_modules/images/versus-red.svg">
 </p>
 
 # Versus
