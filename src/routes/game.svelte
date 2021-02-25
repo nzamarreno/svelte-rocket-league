@@ -1,5 +1,6 @@
 <script>
 	import thunder from "images/thunder.svg";
+	import versoSmall from "images/versus-small.svg";
 	import versoLogo from "images/versus.svg";
 	import { userStore } from "../stores/users";
 
@@ -7,8 +8,6 @@
 		(item, index) => index
 	);
 	const randomLots = drawLots.sort(() => Math.random() - 0.5);
-
-	console.log(randomLots);
 
 	let teamA = ["Léonardo", "Adrien", "Nicolas", "Slimane"];
 	let teamB = ["Khaled", "Julien", "Francis", "Raphael"];
@@ -47,7 +46,7 @@
 			<div class="score-footer__retry biz">Retry</div>
 		</footer>
 	</div>
-	<img class="logo-versus" src={versoLogo} alt="Verso" />
+	<img class="logo-versus" src={versoSmall} alt="Verso" />
 	<img class="logo-thunder" src={thunder} alt="Thunder" />
 	<svg
 		width="462"

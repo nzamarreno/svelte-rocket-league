@@ -96,6 +96,8 @@
 </main>
 
 <style lang="scss">
+	$black: #0a0a0a;
+
     .splash {
         position: fixed;
 		z-index: 999;
@@ -106,7 +108,7 @@
 		justify-content: center;
 		width: 100vw;
 		height: 100vh;
-		background-color: #0a0a0a;
+		background-color: $black;
 		transform-origin: center right;
 		transform: scaleX(1);
 		animation: leaveSplash .5s 3s ease-in-out forwards;
