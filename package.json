@@ -1,6 +1,6 @@
 {
-  "name": "Versus",
-  "description": "Versus",
+  "name": "versus",
+  "description": "Versus is just a training on the Rocket League Topic",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",

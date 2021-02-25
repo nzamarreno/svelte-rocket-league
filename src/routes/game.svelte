@@ -1,13 +1,14 @@
 <script>
-	import versus from "images/vs.svg";
 	import thunder from "images/thunder.svg";
 	import versoLogo from "images/versus.svg";
 	import { userStore } from "../stores/users";
 
-	const drawLots = [...new Array($userStore.length)].map((item, index) => index);
+	const drawLots = [...new Array($userStore.length)].map(
+		(item, index) => index
+	);
 	const randomLots = drawLots.sort(() => Math.random() - 0.5);
 
-	console.log(randomLots)
+	console.log(randomLots);
 
 	let teamA = ["Léonardo", "Adrien", "Nicolas", "Slimane"];
 	let teamB = ["Khaled", "Julien", "Francis", "Raphael"];
@@ -182,12 +183,11 @@
 		top: 50%;
 		transform-origin: center center;
 		animation: animateRotation 20s linear infinite;
-	}
 
-	.wheel-alpha path {
-		fill: $black;
+		path {
+			fill: $black;
+		}
 	}
-
 	@keyframes animateRotation {
 		from {
 			transform: translate(-50%, -50%) rotate(0);
@@ -204,10 +204,10 @@
 		/* transform: translate(50%, -50%); */
 		transform-origin: center center;
 		animation: animateRotation 20s linear infinite;
-	}
 
-	.wheel path {
-		fill: #e41c23;
+		path {
+			fill: $red;
+		}
 	}
 
 	@keyframes animateRotation {
@@ -334,7 +334,7 @@
 			}
 
 			&:nth-child(2) {
-				animation: playerAnimation 0.3s .5s forwards;
+				animation: playerAnimation 0.3s 0.5s forwards;
 			}
 
 			&:nth-child(3) {
