@@ -47,7 +47,7 @@
 			<div class="score-footer__retry biz">Retry</div>
 		</footer>
 	</div>
-	<img class="logo-versus" src={versus} alt="Verso" />
+	<img class="logo-versus" src={versoLogo} alt="Verso" />
 	<img class="logo-thunder" src={thunder} alt="Thunder" />
 	<svg
 		width="462"
