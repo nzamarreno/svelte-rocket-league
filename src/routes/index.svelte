@@ -18,6 +18,7 @@
 	}
 
 	function onAddClick(event) {
+		if (name === "") return
 		userStore.addUser({name: name, nickName: nickname});
 		name = "";
 		nickname = "";
